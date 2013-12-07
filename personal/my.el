@@ -1,17 +1,16 @@
 ;; Personal emacs customizations
 ;;
 (require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
+;; (add-to-list 'package-archives
+;;              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 (when (not package-archive-contents)
-
   (package-refresh-contents))
 
 
-(defvar my-packages '(color-theme-solarized auto-complete ac-nrepl popup undo-tree));   ;auto-complete ac-nrepl nrepl
+(defvar my-packages '(color-theme-solarized auto-complete ac-nrepl popup undo-tree))
 
 
 (dolist (p my-packages)
@@ -24,15 +23,15 @@
 
 ;; Colors
 ;;(disable-theme 'zenburn)
-(load-theme 'solarized-dark t)
+(load-theme 'solarized-light t)
 
 ;; Always show column numbers.
 (setq-default column-number-mode t)
 
 ;; Sunrise Commander
-;(require 'sunrise-commander)
-(global-set-key (kbd "C-c x") 'sunrise)
-(global-set-key (kbd "C-c X") 'sunrise-cd)
+;;(require 'sunrise-commander)
+;;(global-set-key (kbd "C-c x") 'sunrise)
+;;(global-set-key (kbd "C-c X") 'sunrise-cd)
 
 ;; For easy window scrolling up and down.
 (global-set-key "\M-n" 'scroll-up-line)
@@ -42,20 +41,20 @@
 (defalias 'qrr 'query-replace-regexp)
 
 ;; Some default eldoc facilities
-(add-hook 'nrepl-connected-hook
-(defun pnh-clojure-mode-eldoc-hook ()
-(add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
-(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
-(nrepl-enable-on-existing-clojure-buffers)))
+;; (add-hook 'nrepl-connected-hook
+;; (defun pnh-clojure-mode-eldoc-hook ()
+;; (add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
+;; (add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
+;; (nrepl-enable-on-existing-clojure-buffers)))
 
 
-;; Clojure speific emacs
-(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
-(setq nrepl-hide-special-buffers t) ; hides *server..repl stufff
+;; ;; Clojure speific emacs
+ (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+ (setq nrepl-hide-special-buffers t) ; hides *server..repl stufff
 
 ;;Cider settings
 
-(setq cider-repl-pop-to-buffer-on-connect nil)
+;;(setq cider-repl-pop-to-buffer-on-connect nil)
 (setq cider-popup-stacktraces nil)
 (setq cider-repl-popup-stacktraces t)
 (setq cider-auto-select-error-buffer t)
@@ -66,8 +65,8 @@
 (setq cider-repl-history-size 1000) ; the default is 500
 (setq cider-repl-history-file "~/.emacs.d/nrepl-history")
 
-(add-hook 'cider-repl-mode-hook 'subword-mode)
-(add-hook 'cider-repl-mode-hook 'paredit-mode)
+ (add-hook 'cider-repl-mode-hook 'subword-mode)
+;;  (add-hook 'cider-repl-mode-hook 'paredit-mode)
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 
 ;; Auto Complete
