@@ -70,6 +70,11 @@
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 
 ;; Auto Complete
+(require 'auto-complete)
+(global-auto-complete-mode)
+(global-set-key [C-tab] 'auto-complete)
+
+
 (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
 (add-hook 'cider-mode-hook 'ac-nrepl-setup)
 (eval-after-load "auto-complete"
