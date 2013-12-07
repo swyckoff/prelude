@@ -56,7 +56,7 @@
 
 ;;(setq cider-repl-pop-to-buffer-on-connect nil)
 (setq cider-popup-stacktraces nil)
-(setq cider-repl-popup-stacktraces t)
+;;(setq cider-repl-popup-stacktraces t)
 (setq cider-auto-select-error-buffer t)
 (setq nrepl-buffer-name-show-port t)
 (setq cider-repl-display-in-current-window t)
