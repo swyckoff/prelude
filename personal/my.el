@@ -1,8 +1,10 @@
-;; Personal emacs customizations
+;;; package --- .emacs.d/personal/my.el
+;;; Commentary:
+;; Personal EMACS settings
 ;;
 (require 'package)
-;; (add-to-list 'package-archives
-;;              '("marmalade" . "http://marmalade-repo.org/packages/"))
+ (add-to-list 'package-archives
+              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
@@ -23,7 +25,7 @@
 
 ;; Colors
 ;;(disable-theme 'zenburn)
-(load-theme 'solarized-light t)
+(load-theme 'solarized-dark t)
 
 ;; Always show column numbers.
 (setq-default column-number-mode t)
@@ -69,21 +71,26 @@
 ;;  (add-hook 'cider-repl-mode-hook 'paredit-mode)
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 
+;(global-auto-complete-mode)
+
+(global-rainbow-delimiters-mode)
+(smartparens-global-strict-mode)
+
 ;; Auto Complete
 (require 'auto-complete)
-(global-auto-complete-mode)
 (global-set-key [C-tab] 'auto-complete)
-
-
 (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
 (add-hook 'cider-mode-hook 'ac-nrepl-setup)
+
+(add-hook 'cider-repl-mode-hook 'smartparens-strict-mode)
+
 (eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'cider-repl-mode))
+  '(add-to-list 'ac-modes 'cider-repl-mode 'global-auto-complete-mode))
 
 (defun set-auto-complete-as-completion-at-point-function ()
-  (setq completion-at-point-functions '(auto-complete)))
-(add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
+  (setq completion-at-point-functions 'auto-complete))
 
+(add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
 (add-hook 'cider-repl-mode-hook 'set-auto-complete-as-completion-at-point-function)
 (add-hook 'cider-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
