@@ -12,7 +12,7 @@
   (package-refresh-contents))
 
 
-(defvar my-packages '(color-theme-solarized auto-complete ac-nrepl popup undo-tree rainbow-delimiters-mode))
+(defvar my-packages '(color-theme-solarized auto-complete ac-nrepl popup undo-tree rainbow-delimiters))
 
 
 (dolist (p my-packages)
