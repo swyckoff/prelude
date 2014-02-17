@@ -4,10 +4,10 @@
 ;; (require 'prelude-helm) ;; Interface for narrowing and search
 
 (require 'prelude-c)
-;; (require 'prelude-clojure)
+(require 'prelude-clojure)
 ;; (require 'prelude-coffee)
 ;; (require 'prelude-common-lisp)
-;; (require 'prelude-css)
+(require 'prelude-css)
 (require 'prelude-emacs-lisp)
 (require 'prelude-erc) ;; Emacs IRC client
 ;; (require 'prelude-erlang)
@@ -24,5 +24,5 @@
 ;; (require 'prelude-scala)
 (require 'prelude-scheme)
 ;; (require 'prelude-scss)
-;; (require 'prelude-web) ;; Emacs mode for web templates
+(require 'prelude-web) ;; Emacs mode for web templates
 (require 'prelude-xml)

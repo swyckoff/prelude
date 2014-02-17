@@ -12,7 +12,7 @@
   (package-refresh-contents))
 
 
-(defvar my-packages '(color-theme-solarized auto-complete ac-nrepl popup undo-tree rainbow-delimiters))
+(defvar my-packages '(color-theme-solarized auto-complete ac-nrepl popup undo-tree rainbow-delimiters flymake-jslint js2-mode))
 
 
 (dolist (p my-packages)
@@ -39,6 +39,8 @@
 (global-set-key "\M-n" 'scroll-up-line)
 (global-set-key "\M-p" 'scroll-down-line)
 
+(global-set-key (kbd "C-x C-;") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-c 3") 'imenu)
 ;; For easier access to regex search/replace.
 (defalias 'qrr 'query-replace-regexp)
 
@@ -71,13 +73,12 @@
 ;;  (add-hook 'cider-repl-mode-hook 'paredit-mode)
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 
-;(global-auto-complete-mode)
-
 (global-rainbow-delimiters-mode)
 (smartparens-global-strict-mode)
 
 ;; Auto Complete
 (require 'auto-complete)
+(global-auto-complete-mode)
 (global-set-key [C-tab] 'auto-complete)
 (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
 (add-hook 'cider-mode-hook 'ac-nrepl-setup)
@@ -96,3 +97,8 @@
 
 (eval-after-load "cider"
   '(define-key cider-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc))
+
+;; Web
+(require 'flymake-jslint)
+(add-hook 'js-mode-hook 'flymake-jslint-load)
+(add-to-list 'interpreter-mode-alist '("node" . js2-mode))
