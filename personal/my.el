@@ -12,7 +12,7 @@
   (package-refresh-contents))
 
 
-(defvar my-packages '(color-theme-solarized auto-complete ac-nrepl popup undo-tree rainbow-delimiters flymake-jslint js2-mode))
+(defvar my-packages '(color-theme-solarized auto-complete ac-nrepl popup undo-tree magit rainbow-delimiters flymake-jslint js2-mode json-mode))
 
 
 (dolist (p my-packages)
@@ -103,3 +103,10 @@
 (add-hook 'js-mode-hook 'flymake-jslint-load)
 (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+(add-hook 'js-mode-hook
+          (lambda ()
+            ;; Scan the file for nested code blocks
+            (imenu-add-menubar-index)
+            ;; Activate the folding mode
+            (hs-minor-mode t)))
