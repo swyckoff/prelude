@@ -12,7 +12,7 @@
   (package-refresh-contents))
 
 
-(defvar my-packages '(color-theme-solarized auto-complete ac-nrepl popup undo-tree rainbow-delimiters))
+(defvar my-packages '(color-theme-solarized auto-complete ac-nrepl popup undo-tree magit rainbow-delimiters flymake-jslint js2-mode json-mode))
 
 
 (dolist (p my-packages)
@@ -39,6 +39,8 @@
 (global-set-key "\M-n" 'scroll-up-line)
 (global-set-key "\M-p" 'scroll-down-line)
 
+(global-set-key (kbd "C-x C-;") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-c 3") 'imenu)
 ;; For easier access to regex search/replace.
 (defalias 'qrr 'query-replace-regexp)
 
@@ -100,3 +102,16 @@
 
 (eval-after-load "cider"
   '(define-key cider-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc))
+
+;; Web
+(require 'flymake-jslint)
+(add-hook 'js-mode-hook 'flymake-jslint-load)
+(add-to-list 'interpreter-mode-alist '("node" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+(add-hook 'js-mode-hook
+          (lambda ()
+            ;; Scan the file for nested code blocks
+            (imenu-add-menubar-index)
+            ;; Activate the folding mode
+            (hs-minor-mode t)))
