@@ -12,7 +12,7 @@
   (package-refresh-contents))
 
 
-(defvar my-packages '(color-theme-solarized auto-complete ac-nrepl popup undo-tree magit rainbow-delimiters flymake-jslint js2-mode json-mode))
+(defvar my-packages '(color-theme-solarized auto-complete ac-nrepl popup undo-tree magit rainbow-delimiters flymake-jslint js2-mode))
 
 
 (dolist (p my-packages)
@@ -80,6 +80,7 @@
 ;; Tab Setup
 (setq tab-stop-list (number-sequence 4 200 4))
 (setq tab-width 4)
+(setq default-tab-width 4); 
 
 ;; Auto Complete
 (require 'auto-complete)
