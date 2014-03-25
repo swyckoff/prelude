@@ -72,12 +72,16 @@
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 
 ;(global-auto-complete-mode)
-
 (global-rainbow-delimiters-mode)
 (smartparens-global-strict-mode)
 
+;; Tab Setup
+(setq tab-stop-list (number-sequence 4 200 4))
+(setq tab-width 4)
+
 ;; Auto Complete
 (require 'auto-complete)
+(global-auto-complete-mode)
 (global-set-key [C-tab] 'auto-complete)
 (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
 (add-hook 'cider-mode-hook 'ac-nrepl-setup)
