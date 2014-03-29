@@ -12,7 +12,7 @@
   (package-refresh-contents))
 
 
-(defvar my-packages '(color-theme-solarized auto-complete ac-nrepl popup undo-tree magit rainbow-delimiters flymake-jslint js2-mode json-mode))
+(defvar my-packages '(color-theme-solarized auto-complete ac-nrepl groovy-mode popup undo-tree magit rainbow-delimiters flymake-jslint js2-mode json-mode))
 
 
 (dolist (p my-packages)
