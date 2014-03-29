@@ -12,7 +12,7 @@
   (package-refresh-contents))
 
 
-(defvar my-packages '(color-theme-solarized auto-complete ac-nrepl groovy-mode popup undo-tree magit rainbow-delimiters flymake-jslint js2-mode json-mode))
+(defvar my-packages '(color-theme-solarized auto-complete ac-nrepl groovy-mode popup undo-tree magit rainbow-delimiters flymake-jslint js2-mode))
 
 
 (dolist (p my-packages)
@@ -73,8 +73,14 @@
 ;;  (add-hook 'cider-repl-mode-hook 'paredit-mode)
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 
+;(global-auto-complete-mode)
 (global-rainbow-delimiters-mode)
 (smartparens-global-strict-mode)
+
+;; Tab Setup
+(setq tab-stop-list (number-sequence 4 200 4))
+(setq tab-width 4)
+(setq default-tab-width 4);
 
 ;; Auto Complete
 (require 'auto-complete)
