@@ -27,6 +27,7 @@
 >>>>>>> upstream/master
 ;; (require 'prelude-latex)
 (require 'prelude-lisp)
+;; (require 'prelude-ocaml)
 (require 'prelude-org) ;; Org-mode helps you keep TODO lists, notes and more
 (require 'prelude-perl)
 ;; (require 'prelude-python)
