@@ -29,7 +29,7 @@
 (setq-default inhibit-startup-screen t)
 
 ;; Colors
-;;(disable-theme 'zenburn)
+; (disable-theme 'zenburn)
 (load-theme 'solarized-dark t)
 
 ;; Always show column numbers.

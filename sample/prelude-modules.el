@@ -21,12 +21,7 @@
 ;; (require 'prelude-elixir)
 ;; (require 'prelude-go)
 ;; (require 'prelude-haskell)
-<<<<<<< HEAD
-;; (require 'prelude-js) ;; Use js2-mode instead
-;; (require 'prelude-key-chord) ;; Binds useful features to key combinations
-=======
 (require 'prelude-js)
->>>>>>> upstream/master
 ;; (require 'prelude-latex)
 (require 'prelude-lisp)
 ;; (require 'prelude-ocaml)
