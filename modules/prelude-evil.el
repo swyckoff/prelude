@@ -1,6 +1,6 @@
 ;;; prelude-evil.el --- Emacs Prelude: evil-mode configuration.
 ;;
-;; Copyright © 2011-2013 Bozhidar Batsov
+;; Copyright © 2011-2015 Bozhidar Batsov
 ;;
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: http://batsov.com/prelude
@@ -48,6 +48,9 @@
 (setq evil-insert-state-cursor '("gray" bar))
 (setq evil-motion-state-cursor '("gray" box))
 
+;; prevent esc-key from translating to meta-key in terminal mode
+(setq evil-esc-delay 0)
+
 (evil-mode 1)
 (global-evil-surround-mode 1)
 
@@ -71,6 +74,23 @@
 
 (define-key evil-normal-state-map
   (kbd "Y") 'prelude-yank-to-end-of-line)
+
+(defun prelude-shift-left-visual ()
+  "Shift left and restore visual selection."
+  (interactive)
+  (evil-shift-left (region-beginning) (region-end))
+  (evil-normal-state)
+  (evil-visual-restore))
+
+(defun prelude-shift-right-visual ()
+  "Shift right and restore visual selection."
+  (interactive)
+  (evil-shift-right (region-beginning) (region-end))
+  (evil-normal-state)
+  (evil-visual-restore))
+
+(define-key evil-visual-state-map (kbd ">") 'prelude-shift-right-visual)
+(define-key evil-visual-state-map (kbd "<") 'prelude-shift-left-visual)
 
 ;; Scrolling
 (defun prelude-evil-scroll-down-other-window ()
