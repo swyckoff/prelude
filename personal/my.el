@@ -11,13 +11,18 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
+(add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
+(require 'color-theme)
+(add-to-list 'load-path "~/.emacs.d/emacs-color-theme-solarized/")
+(require 'color-theme-solarized)
 
-(defvar my-packages '(color-theme-solarized auto-complete ac-nrepl groovy-mode popup undo-tree magit rainbow-delimiters flymake-jslint js2-mode))
+(defvar my-packages '(auto-complete ac-nrepl groovy-mode popup undo-tree magit rainbow-delimiters flymake-jslint js2-mode))
 
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
 
 ;; Pasting
 (setq x-select-enable-clipboard t)
@@ -38,6 +43,8 @@
 ;; For easy window scrolling up and down.
 (global-set-key "\M-n" 'scroll-up-line)
 (global-set-key "\M-p" 'scroll-down-line)
+
+(scroll-bar-mode -1)
 
 (global-set-key (kbd "C-x C-;") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c 3") 'imenu)
@@ -116,3 +123,7 @@
             (imenu-add-menubar-index)
             ;; Activate the folding mode
             (hs-minor-mode t)))
+
+(require 'tramp)
+(setq tramp-default-method "scp")
+

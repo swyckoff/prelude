@@ -6,14 +6,14 @@
 ;;     (setenv "PATH"
 ;;         (shell-command-to-string "source $HOME/.zprofile && printf $PATH")))
 
-(when (memq window-system '(mac ns)) (exec-path-from-shell-initialize)) ;;Launching emacs from gui
+;; (when (memq window-system '(mac ns)) (exec-path-from-shell-initialize)) ;;Launching emacs from gui
         
 (setq mac-command-modifier 'meta)
 ;; (setq mac-option-modifier 'alt)
 (setq mac-option-modifier 'super)
 
 ;; Allow tabbing between frames
-(x-focus-frame nil)
+;; (x-focus-frame nil)
 (global-set-key "\M-`" 'other-frame)
 
 
